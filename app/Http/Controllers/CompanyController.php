@@ -8,6 +8,10 @@ use App\Http\Resources\Company as CompanyResource;
 
 class CompanyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api')->except('index', 'show');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +20,7 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::paginate(10);
+
         return CompanyResource::collection($companies);
     }
 
@@ -44,6 +49,7 @@ class CompanyController extends Controller
     public function show($id)
     {
         $company = Company::findOrFail($id);
+
         return new CompanyResource($company);
     }
 
@@ -55,10 +61,12 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         $company = Company::findOrFail($id);
+
         $company->delete();
 
         $response['success'] = true;
         $response['msg'] = "Company " . $company->name . " deleted!";
+
         return $response;
     }
 }
