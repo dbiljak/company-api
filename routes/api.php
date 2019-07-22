@@ -17,6 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// PASSPORT
+Route::post('login', 'UserController@login');
+Route::post('register', 'UserController@register');
+Route::group(['middleware' => 'auth:api'], function(){
+    Route::post('user-details', 'UserController@userDetails');
+});
+
 // COMPANIES
 Route::get('companies', 'CompanyController@index');
 Route::get('company/{id}', 'CompanyController@show');
