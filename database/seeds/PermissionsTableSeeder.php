@@ -17,7 +17,7 @@ class PermissionsTableSeeder extends Seeder
             0 =>
             array (
                 'id' => 1,
-                'name' => 'edit_user',
+                'name' => 'create_user',
                 'guard_name' => 'api',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -25,7 +25,7 @@ class PermissionsTableSeeder extends Seeder
             1 =>
             array (
                 'id' => 2,
-                'name' => 'edit_company',
+                'name' => 'create_company',
                 'guard_name' => 'api',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -33,7 +33,7 @@ class PermissionsTableSeeder extends Seeder
             2 =>
             array (
                 'id' => 3,
-                'name' => 'edit_product',
+                'name' => 'create_product',
                 'guard_name' => 'api',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -41,7 +41,7 @@ class PermissionsTableSeeder extends Seeder
             3 =>
             array (
                 'id' => 4,
-                'name' => 'create_user',
+                'name' => 'view_user',
                 'guard_name' => 'api',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -49,7 +49,7 @@ class PermissionsTableSeeder extends Seeder
             4 =>
             array (
                 'id' => 5,
-                'name' => 'create_company',
+                'name' => 'view_company',
                 'guard_name' => 'api',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -57,7 +57,7 @@ class PermissionsTableSeeder extends Seeder
             5 =>
             array (
                 'id' => 6,
-                'name' => 'create_product',
+                'name' => 'view_product',
                 'guard_name' => 'api',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -65,7 +65,7 @@ class PermissionsTableSeeder extends Seeder
             6 =>
             array (
                 'id' => 7,
-                'name' => 'view_user',
+                'name' => 'update_user',
                 'guard_name' => 'api',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -73,7 +73,7 @@ class PermissionsTableSeeder extends Seeder
             7 =>
             array (
                 'id' => 8,
-                'name' => 'view_company',
+                'name' => 'update_company',
                 'guard_name' => 'api',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -81,7 +81,7 @@ class PermissionsTableSeeder extends Seeder
             8 =>
             array (
                 'id' => 9,
-                'name' => 'view_product',
+                'name' => 'update_product',
                 'guard_name' => 'api',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -89,7 +89,23 @@ class PermissionsTableSeeder extends Seeder
             9 =>
             array (
                 'id' => 10,
-                'name' => 'view_product',
+                'name' => 'delete_user',
+                'guard_name' => 'api',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ),
+            10 =>
+            array (
+                'id' => 11,
+                'name' => 'delete_company',
+                'guard_name' => 'api',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ),
+            11 =>
+            array (
+                'id' => 12,
+                'name' => 'delete_product',
                 'guard_name' => 'api',
                 'created_at' => now(),
                 'updated_at' => now(),
