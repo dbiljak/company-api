@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
+// ONE TIME ROUTE
+Route::get('one-time-route', 'OneTimeController@index');
+
 // PASSPORT
 Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
@@ -45,3 +48,18 @@ Route::group(['middleware' => ['auth:api', 'role:admin']], function () {
 });
 
 // PRODUCTS
+
+// VARIATION CATEGORIES
+Route::get('variation-categories', 'VariationCategoryController@index');
+Route::get('variation-category/{id}', 'VariationCategoryController@show');
+Route::post('variation-category', 'VariationCategoryController@store');
+Route::put('variation-category', 'VariationCategoryController@store');
+Route::delete('variation-category/{id}', 'VariationCategoryController@destroy');
+
+
+// VARIATIONS
+Route::get('variations', 'VariationController@index');
+Route::get('variation/{id}', 'VariationController@show');
+Route::post('variation', 'VariationController@store');
+Route::put('variation', 'VariationController@store');
+Route::delete('variation/{id}', 'VariationController@destroy');

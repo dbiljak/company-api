@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Company;
+use App\VariationCategory;
 use Illuminate\Http\Request;
-use App\Http\Resources\Company as CompanyResource;
+use App\Http\Resources\VariationCategory as VariationCategoryResource;
 
-class CompanyController extends Controller
+class VariationCategoryController extends Controller
 {
     public function __construct()
     {
@@ -20,9 +20,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::paginate(10);
-
-        return CompanyResource::collection($companies);
+        $variation_categories = VariationCategory::with(['variations:id,name,variation_category_id'])->get();
+        return VariationCategoryResource::collection($variation_categories);
     }
 
     /**
@@ -33,40 +32,35 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $company = $request->isMethod('put') && $request->id ? Company::findOrFail($request->id) : new Company;
-
-        $company->name = $request->name;
-        $company->location = $request->location;
-        $company->save();
-
-        return new CompanyResource($company);
+        //
     }
 
     /**
      * Display the specified resource.
      *
+     * @param  \App\VariationCategory  $variationCategory
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(VariationCategory $variationCategory)
     {
-        $company = Company::findOrFail($id);
-
-        return new CompanyResource($company);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \App\VariationCategory  $variationCategory
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $company = Company::findOrFail($id);
+        $variation_category = VariationCategory::findOrFail($id);
 
-        $company->delete();
+        $variation_category->variations()->delete();
+        $variation_category->delete();
 
         $response['success'] = true;
-        $response['msg'] = "Company " . $company->name . " deleted!";
+        $response['msg'] = "Variation category " . $variation_category->name . " deleted!";
 
         return $response;
     }
