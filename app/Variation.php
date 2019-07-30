@@ -12,6 +12,10 @@ class Variation extends Model
       return $this->BelongsTo('App\VariationCategory');
     }
 
+    public function products() {
+      return $this->belongsToMany(Product::class);
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

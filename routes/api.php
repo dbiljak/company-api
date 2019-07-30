@@ -48,6 +48,8 @@ Route::group(['middleware' => ['auth:api', 'role:admin']], function () {
 });
 
 // PRODUCTS
+Route::post('product', 'ProductController@store');
+Route::put('product', 'ProductController@store');
 
 // VARIATION CATEGORIES
 Route::get('variation-categories', 'VariationCategoryController@index');
